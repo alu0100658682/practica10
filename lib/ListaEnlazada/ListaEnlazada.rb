@@ -144,7 +144,7 @@ class List
                 nodo.next = nil
                 auxprev.next = auxnext
                 auxnext.prev = auxprev
-            
+             
             else
                 #No hay nodo en esa posición
             end
