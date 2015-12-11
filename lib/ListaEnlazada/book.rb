@@ -22,3 +22,18 @@ class Libro < Biblio
     end
     
 end
+
+
+
+
+# while i < @author.count
+        
+#         if i != @author.count-1
+#             author = author + "#{@author[i]} & "
+#         else
+#             author= author + "#{@author[i]}"
+#         end
+#          i= i + 1
+
+#         end
+#         end

@@ -5,7 +5,7 @@ class Revista < Biblio
     def initialize(aut, titulo, serie, publicacion, issn)
   
 		@autor = Array.new(aut)
-		@titulo = titulo
+		@titulo = titulo.capitalize
 		@serie = serie
 		@fecha_publicacion = publicacion
 		@numero_ISSN = Array.new(issn)
@@ -15,9 +15,16 @@ class Revista < Biblio
     
     def to_s 
         
-        "#{@autor}, #{@titulo}, #{@serie}, #{@fecha_publicacion}, #{@numero_ISSN}"
+        if self.instance_of?Revista
+            # "#{@autor}, #{@titulo}, #{@serie}, #{@fecha_publicacion}, #{@numero_ISSN}"
+            "Nombre del (los) Autor(es): #{@autor}; Fecha de publicacion: #{@fecha_publicacion}; Titulo: #{@titulo}; Issn: #{@numero_ISSN}; Publicacion: #{@serie}."
 
+        end
     end
+    
+    
+        
+            
     
     
 end

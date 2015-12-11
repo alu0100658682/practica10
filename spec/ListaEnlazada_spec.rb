@@ -9,10 +9,11 @@ describe ListaEnlazada do
     @libro2 = Libro.new(['Scott Chacon'], "Pro Git 2009th Edition (Pro)","", "Apress", "2009 edition", (Time.local(2009,8,27).strftime("%A, %d/%m/%Y")), ['ISBN-13: 978-1430218333', 'ISBN-10: 1430218339'])
     @libro3 = Libro.new(['David Flanagan', 'Yukihiro Matsumoto'], "The Ruby Programming Language", "","O’Reilly Media", "1 edition", (Time.local(2008,4,2).strftime("%A, %d/%m/%Y")), ['ISBN-10: 0596516177', 'ISBN-13: 978-0596516178'])
     @libro4 = Libro.new(['David Chelimsky', 'Dave Astels', 'Bryan Helmkamp', 'Dan North', 'Zach Dennis', 'Aslak Hellesoy'], "The RSpecBook: Behaviour Driven Development with RSpec", "","Cucumber, and Friends (The Facets of Ruby) PragmaticBookshelf", "1 edition",(Time.local(2010,12,25).strftime("%A, %d/%m/%Y")), ['ISBN-10: 1934356379', 'ISBN-13: 978-1934356371'])
-    @libro5 = Libro.new(['Richard E. Silverman'], "Git Pocket Guide", "" ,"O’Reilly Media", "1 edition", (Time.local(2013,8,2).strftime("%A, %d/%m/%Y")), ['ISBN-10: 1449325866', 'ISBN-13: 978-1449325862'])
+    @libro5 = Libro.new(['Richard Silverman'], "Git Pocket Guide", "" ,"O’Reilly Media", "1 edition", (Time.local(2013,8,2).strftime("%A, %d/%m/%Y")), ['ISBN-10: 1449325866', 'ISBN-13: 978-1449325862'])
     
   #Revistas
-    @revista1 = Revista.new(['Pepe'], 'Marca', '12', (Time.local(2015,7,7).strftime("%A, %d/%m/%Y")), ['123123123'] )
+    @revista1 = Revista.new(['Pepe Gómez'], 'Marca', '12', (Time.local(2015,7,7).strftime("%A, %d/%m/%Y")), ['123123123'] )
+    @revista2 = Revista.new(['Pepe Gómez', 'Luis Díaz'], 'Marca', '12', (Time.local(2015,7,7).strftime("%A, %d/%m/%Y")), ['123123123'] )
   
   #Ebooks
     @ebook1 = Ebook.new(['Fernando Cortés'], 'El charco bajo el agua', '12',(Time.local(2013,7,7).strftime("%A, %d/%m/%Y")),['ISBN-13: 978-1937785499'], 'http://www.ebookgratis.com')
@@ -26,6 +27,10 @@ describe ListaEnlazada do
     @nodo3 = Node.new(nil, @ebook1, nil)
     @nodo4 = Node.new(nil, @libro4, nil)
     @nodo5 = Node.new(nil, @libro5, nil)
+    
+  #APA
+    @apa1 = Apa.new()
+
     
   end
   
@@ -186,7 +191,7 @@ describe ListaEnlazada do
       @lista1.insert(@nodo1)
       @lista1.insert(@nodo2)
       @lista1.insert(@nodo3)
-      expect(@lista1.extraerprimero()).to eq("[\"Pepe\"], Marca, 12, Tuesday, 07/07/2015, [\"123123123\"]")
+      expect(@lista1.extraerprimero()).to eq("Nombre del (los) Autor(es): [\"Pepe Gómez\"]; Fecha de publicacion: Tuesday, 07/07/2015; Titulo: Marca; Issn: [\"123123123\"]; Publicacion: 12.")
       
     end
     
@@ -204,7 +209,7 @@ describe ListaEnlazada do
       @lista1.insert(@nodo1)
       @lista1.insert(@nodo2)
       @lista1.insert(@nodo3)
-      expect(@lista1.nodelist()).to eq("[\"Pepe\"], Marca, 12, Tuesday, 07/07/2015, [\"123123123\"]\n[\"Dave Thomas\", \"Andy Hunt\", \"Chad Fowler\"], Programming Ruby 1.9 & 2.0: The Pragmatic Programmers Guide. (The Facets of Ruby)., , Pragmatic Bookshelf, 4 edition, Sunday, 07/07/2013, [\"ISBN-13: 978-1937785499\"]\n[\"Fernando Cortés\"], El charco bajo el agua, 12, Sunday, 07/07/2013, [\"ISBN-13: 978-1937785499\"], http://www.ebookgratis.com\n")
+      expect(@lista1.nodelist()).to eq("Nombre del (los) Autor(es): [\"Pepe Gómez\"]; Fecha de publicacion: Tuesday, 07/07/2015; Titulo: Marca; Issn: [\"123123123\"]; Publicacion: 12.\n[\"Dave Thomas\", \"Andy Hunt\", \"Chad Fowler\"], Programming Ruby 1.9 & 2.0: The Pragmatic Programmers Guide. (The Facets of Ruby)., , Pragmatic Bookshelf, 4 edition, Sunday, 07/07/2013, [\"ISBN-13: 978-1937785499\"]\n[\"Fernando Cortés\"], El charco bajo el agua, 12, Sunday, 07/07/2013, [\"ISBN-13: 978-1937785499\"], http://www.ebookgratis.com\n")
         
     end
     
@@ -236,9 +241,9 @@ describe ListaEnlazada do
         @lista1.insert(@nodo2)
         @lista1.insert(@nodo3)
         
-        expect(@lista1.nodelist()).to eq("[\"Pepe\"], Marca, 12, Tuesday, 07/07/2015, [\"123123123\"]\n[\"Dave Thomas\", \"Andy Hunt\", \"Chad Fowler\"], Programming Ruby 1.9 & 2.0: The Pragmatic Programmers Guide. (The Facets of Ruby)., , Pragmatic Bookshelf, 4 edition, Sunday, 07/07/2013, [\"ISBN-13: 978-1937785499\"]\n[\"Fernando Cortés\"], El charco bajo el agua, 12, Sunday, 07/07/2013, [\"ISBN-13: 978-1937785499\"], http://www.ebookgratis.com\n")
+        expect(@lista1.nodelist()).to eq("Nombre del (los) Autor(es): [\"Pepe Gómez\"]; Fecha de publicacion: Tuesday, 07/07/2015; Titulo: Marca; Issn: [\"123123123\"]; Publicacion: 12.\n[\"Dave Thomas\", \"Andy Hunt\", \"Chad Fowler\"], Programming Ruby 1.9 & 2.0: The Pragmatic Programmers Guide. (The Facets of Ruby)., , Pragmatic Bookshelf, 4 edition, Sunday, 07/07/2013, [\"ISBN-13: 978-1937785499\"]\n[\"Fernando Cortés\"], El charco bajo el agua, 12, Sunday, 07/07/2013, [\"ISBN-13: 978-1937785499\"], http://www.ebookgratis.com\n")
         @lista1.delete(1)
-        expect(@lista1.nodelist()).to eq("[\"Pepe\"], Marca, 12, Tuesday, 07/07/2015, [\"123123123\"]\n[\"Fernando Cortés\"], El charco bajo el agua, 12, Sunday, 07/07/2013, [\"ISBN-13: 978-1937785499\"], http://www.ebookgratis.com\n")
+        expect(@lista1.nodelist()).to eq("Nombre del (los) Autor(es): [\"Pepe Gómez\"]; Fecha de publicacion: Tuesday, 07/07/2015; Titulo: Marca; Issn: [\"123123123\"]; Publicacion: 12.\n[\"Fernando Cortés\"], El charco bajo el agua, 12, Sunday, 07/07/2013, [\"ISBN-13: 978-1937785499\"], http://www.ebookgratis.com\n")
     
     end
   
@@ -357,5 +362,25 @@ describe ListaEnlazada do
       end
       
   end
+  
+  describe Apa do
+        
+		it "Invertir el orden de Nombre y Apellidos" do
+		    expect(@revista2.autor).to eq(['Pepe Gómez', 'Luis Díaz'])
+		    @apa1.atributo.insert(@revista2)
+            expect(@apa1.to_s).to eq("Título: Marca \n\t Autor(es): Gómez Pepe & Díaz Luis\n")
+		end
+
+		it "Utiliza & para concatenar nombres de autores" do
+            @apa1.atributo.insert(@revista2)
+            expect(@apa1.to_s).to eq("Título: Marca \n\t Autor(es): Gómez Pepe & Díaz Luis\n")
+		end
+		
+		it "Utiliza una sangria francesa" do
+		    @apa1.atributo.insert(@revista2)
+		    expect((@apa1.to_s).include?("\t")).to eq true
+		    
+		end
+	end
   
 end
