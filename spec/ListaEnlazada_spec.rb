@@ -379,6 +379,11 @@ describe ListaEnlazada do
 		it "Utiliza una sangria francesa" do
 		    @apa1.atributo.insert(@revista2)
 		    expect((@apa1.to_s).include?("\t")).to eq true
+		end
+		
+		it "Mostrar iniciales" do
+		    @apa1.atributo.insert(@revista2)
+		    expect(@revista2.autor).to eq(['Pepe Gómez', 'Luis Díaz'])
 		    
 		end
 	end
