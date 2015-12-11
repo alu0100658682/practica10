@@ -17,14 +17,6 @@ class Biblio
         
     end
     
-#     def <=> (other)
-#         if ((other.instance_of? Revista) || (other.instance_of? Ebook) || (other.instance_of? Libro))
-#             return ((self.to_s[2]) <=> (other.to_s[2]))
-# 		else
-# 			false
-#         end
-#     end
-    
     def <=>(other)
         if ((other.instance_of? Revista) || (other.instance_of? Ebook) || (other.instance_of? Libro))
              if((@autor <=> other.autor)==0) 
