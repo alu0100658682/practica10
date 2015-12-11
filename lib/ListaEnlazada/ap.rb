@@ -1,11 +1,5 @@
 # encoding: UTF-8
 class Apa
-    # require "../ListaEnlazada/ListaEnlazada"
-    # require "../ListaEnlazada/bibliografia"
-    # require "../ListaEnlazada/book"
-    # require "../ListaEnlazada/magazine"
-    # require "../ListaEnlazada/node"
-    # require "../ListaEnlazada/libroelec"
     include Comparable
     attr_accessor :atributo
     
