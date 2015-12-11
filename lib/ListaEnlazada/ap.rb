@@ -1,4 +1,4 @@
-
+# encoding: UTF-8
 class Apa
     # require "../ListaEnlazada/ListaEnlazada"
     # require "../ListaEnlazada/bibliografia"
