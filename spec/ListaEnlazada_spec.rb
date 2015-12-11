@@ -374,12 +374,12 @@ describe ListaEnlazada do
 		it "Invertir el orden de Nombre y Apellidos" do
 		    expect(@revista2.autor).to eq(['Pepe Gómez', 'Luis Díaz'])
 		    @apa1.atributo.insert(@revista2)
-            expect(@apa1.to_s).to eq("Título: Marca \n\t Autor(es): Gómez Pepe & Díaz Luis(D.L.)\n")
+            expect(@apa1.to_s).to eq("Título: Marca \n\t Autor(es): Gómez Pepe & Díaz Luis(D.L.)\n\t Serie: 12\n\t Fecha: Tuesday, 07/07/2015\n")
 		end
 
 		it "Utiliza & para concatenar nombres de autores" do
             @apa1.atributo.insert(@revista2)
-            expect(@apa1.to_s).to eq("Título: Marca \n\t Autor(es): Gómez Pepe & Díaz Luis(D.L.)\n")
+            expect(@apa1.to_s).to eq("Título: Marca \n\t Autor(es): Gómez Pepe & Díaz Luis(D.L.)\n\t Serie: 12\n\t Fecha: Tuesday, 07/07/2015\n")
 		    expect((@apa1.to_s).include?("&")).to eq true
 
 		end
