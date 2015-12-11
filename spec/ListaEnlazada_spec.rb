@@ -364,6 +364,12 @@ describe ListaEnlazada do
   end
   
   describe Apa do
+      
+        it "Debe crearse un objeto de tipo Apa." do
+         
+            expect((@apa1).is_a? Apa).to eq true
+        
+        end
         
 		it "Invertir el orden de Nombre y Apellidos" do
 		    expect(@revista2.autor).to eq(['Pepe Gómez', 'Luis Díaz'])
