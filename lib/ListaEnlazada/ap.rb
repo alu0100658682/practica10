@@ -21,7 +21,7 @@ class Apa
 
         while(aux != nil)
             cadena << "Título: " << mostrar_titulo(aux.value.titulo) << "\n"
-            cadena << "\t Autor(es): " << mostrar_autor(aux.value.autor) << "\n"
+            cadena << "\t Autor(es): " << mostrar_autor(aux.value.autor) << "(" << iniciales(aux.value.autor) << ")" << "\n"
              
             # puts iniciales(aux.value.autor)
             
