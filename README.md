@@ -4,3 +4,4 @@ Lenguajes y Paradigmas de la Programación
     
     Práctica 10                        
 
+{<img src="https://coveralls.io/repos/alu0100658682/practica10/badge.svg?branch=master&service=github" alt="Coverage Status" />}[https://coveralls.io/github/alu0100658682/practica10?branch=master]
